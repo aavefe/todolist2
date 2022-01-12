@@ -7,6 +7,7 @@ var siguientediv;
 var divtodo;
 var contenedor;
 var contenedortarea;
+var defined = 0;
 
 function isEmpty(str) {
         str = str.trim();
@@ -19,6 +20,7 @@ onload=function recuperarTareas(objetorecuperado){
         var objetorecuperado = JSON.parse(recuperardatos);
         
         for(i = 0; i<objetorecuperado.length; i++){
+                defined = 1;
                 valor = objetorecuperado[i].nombre;
                 creaTareas();
                 var botonmarcar = document.getElementById("botonmarcar"+objetorecuperado[i].nombre);
@@ -83,7 +85,7 @@ function creaTareas(){
         var select = document.getElementById("valores");
 
 
-        if(typeof recuperardatos === "undefined"){
+        if(defined === 0){
                 if(select.value == "enanalisis"){
                         divtodo = document.getElementById("contenedor").appendChild(document.createElement("div"));
                         divtodo.setAttribute("id","divtareas"+valor);
@@ -228,154 +230,156 @@ function creaTareas(){
                         document.getElementById("numtareas").innerHTML = tareas.length+1;
                         contador++;
                 }
+        }else{
+                if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "1"){
+                        divtodo = document.getElementById("contenedor").appendChild(document.createElement("div"));
+                        divtodo.setAttribute("id","divtareas"+valor);
+                        divtodo.setAttribute("class", "divtareas");
+                        var divicono = divtodo.appendChild(icono);
+                        divicono.setAttribute("id","divicono"+valor);
+                        divicono.setAttribute("class", "fas fa-angle-double-right");
+                        var divtexto = divtodo.appendChild(div);
+                        divtexto.setAttribute("id","divtexto"+valor);
+                        divtexto.setAttribute("class", "divtexto");
+                        var editarinput = divtodo.appendChild(input);
+                        editarinput.setAttribute("id", "editarinput"+valor);
+                        editarinput.setAttribute("class", "editarinput");
+                        editarinput.style.display = "none";
+                        var divbotones = divtodo.appendChild(document.createElement("div"));
+                        divbotones.setAttribute("id","divbotones"+valor);
+                        divbotones.setAttribute("class", "divbotones");
+                        var botonmarcar = divbotones.appendChild(marcar);
+                        botonmarcar.setAttribute("id","botonmarcar"+valor);
+                        botonmarcar.setAttribute("class", "botonmarcar");
+                        var botoneliminar = divbotones.appendChild(eliminar);
+                        botoneliminar.setAttribute("id","botoneliminar"+valor);
+                        botoneliminar.setAttribute("class", "botoneliminar");
+                        var botoneditar = divbotones.appendChild(editar);
+                        botoneditar.setAttribute("id","botoneditar"+valor);
+                        botoneditar.setAttribute("class", "botoneditar");
+                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
+                        hiddenvalue.setAttribute("type", "hidden");
+                        hiddenvalue.setAttribute("id", "hidden"+valor);
+                        hiddenvaluediv.value = contador;
+                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
+                        hiddenvalue2.setAttribute("type", "hidden");
+                        hiddenvaluediv2.value = "1";
+                        document.getElementById("numtareas").innerHTML = tareas.length+1;
+                        contador++;
+        
+                } else if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "2"){
+                        divtodo = document.getElementById("contenedor2").appendChild(document.createElement("div"));
+                        divtodo.setAttribute("id","divtareas"+valor);
+                        divtodo.setAttribute("class", "divtareas");
+                        var divicono = divtodo.appendChild(icono);
+                        divicono.setAttribute("id","divicono"+valor);
+                        divicono.setAttribute("class", "fas fa-angle-double-right");
+                        var divtexto = divtodo.appendChild(div);
+                        divtexto.setAttribute("id","divtexto"+valor);
+                        divtexto.setAttribute("class", "divtexto");
+                        var editarinput = divtodo.appendChild(input);
+                        editarinput.setAttribute("id", "editarinput"+valor);
+                        editarinput.setAttribute("class", "editarinput");
+                        editarinput.style.display = "none";
+                        var divbotones = divtodo.appendChild(document.createElement("div"));
+                        divbotones.setAttribute("id","divbotones"+valor);
+                        divbotones.setAttribute("class", "divbotones");
+                        var botonmarcar = divbotones.appendChild(marcar);
+                        botonmarcar.setAttribute("id","botonmarcar"+valor);
+                        botonmarcar.setAttribute("class", "botonmarcar");
+                        var botoneliminar = divbotones.appendChild(eliminar);
+                        botoneliminar.setAttribute("id","botoneliminar"+valor);
+                        botoneliminar.setAttribute("class", "botoneliminar");
+                        var botoneditar = divbotones.appendChild(editar);
+                        botoneditar.setAttribute("id","botoneditar"+valor);
+                        botoneditar.setAttribute("class", "botoneditar");
+                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
+                        hiddenvalue.setAttribute("type", "hidden");
+                        hiddenvalue.setAttribute("id", "hidden"+valor);
+                        hiddenvaluediv.value = contador;
+                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
+                        hiddenvalue2.setAttribute("type", "hidden");
+                        hiddenvaluediv2.value = "2";
+                        document.getElementById("numtareas").innerHTML = tareas.length+1;
+                        contador++;
+        
+                } else if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "3"){
+                        divtodo = document.getElementById("contenedor3").appendChild(document.createElement("div"));
+                        divtodo.setAttribute("id","divtareas"+valor);
+                        divtodo.setAttribute("class", "divtareas");
+                        var divicono = divtodo.appendChild(icono);
+                        divicono.setAttribute("id","divicono"+valor);
+                        divicono.setAttribute("class", "fas fa-angle-double-right");
+                        var divtexto = divtodo.appendChild(div);
+                        divtexto.setAttribute("id","divtexto"+valor);
+                        divtexto.setAttribute("class", "divtexto");
+                        var editarinput = divtodo.appendChild(input);
+                        editarinput.setAttribute("id", "editarinput"+valor);
+                        editarinput.setAttribute("class", "editarinput");
+                        editarinput.style.display = "none";
+                        var divbotones = divtodo.appendChild(document.createElement("div"));
+                        divbotones.setAttribute("id","divbotones"+valor);
+                        divbotones.setAttribute("class", "divbotones");
+                        var botonmarcar = divbotones.appendChild(marcar);
+                        botonmarcar.setAttribute("id","botonmarcar"+valor);
+                        botonmarcar.setAttribute("class", "botonmarcar");
+                        var botoneliminar = divbotones.appendChild(eliminar);
+                        botoneliminar.setAttribute("id","botoneliminar"+valor);
+                        botoneliminar.setAttribute("class", "botoneliminar");
+                        var botoneditar = divbotones.appendChild(editar);
+                        botoneditar.setAttribute("id","botoneditar"+valor);
+                        botoneditar.setAttribute("class", "botoneditar");
+                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
+                        hiddenvalue.setAttribute("type", "hidden");
+                        hiddenvalue.setAttribute("id", "hidden"+valor);
+                        hiddenvaluediv.value = contador;
+                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
+                        hiddenvalue2.setAttribute("type", "hidden");
+                        hiddenvaluediv2.value = "3";
+                        document.getElementById("numtareas").innerHTML = tareas.length+1;
+                        contador++;
+        
+                } else if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "4"){
+                        divtodo = document.getElementById("contenedor4").appendChild(document.createElement("div"));
+                        divtodo.setAttribute("id","divtareas"+valor);
+                        divtodo.setAttribute("class", "divtareas");
+                        var divicono = divtodo.appendChild(icono);
+                        divicono.setAttribute("id","divicono"+valor);
+                        divicono.setAttribute("class", "fas fa-angle-double-right");
+                        var divtexto = divtodo.appendChild(div);
+                        divtexto.setAttribute("id","divtexto"+valor);
+                        divtexto.setAttribute("class", "divtexto");
+                        var editarinput = divtodo.appendChild(input);
+                        editarinput.setAttribute("id", "editarinput"+valor);
+                        editarinput.setAttribute("class", "editarinput");
+                        editarinput.style.display = "none";
+                        var divbotones = divtodo.appendChild(document.createElement("div"));
+                        divbotones.setAttribute("id","divbotones"+valor);
+                        divbotones.setAttribute("class", "divbotones");
+                        var botonmarcar = divbotones.appendChild(marcar);
+                        botonmarcar.setAttribute("id","botonmarcar"+valor);
+                        botonmarcar.setAttribute("class", "botonmarcar");
+                        var botoneliminar = divbotones.appendChild(eliminar);
+                        botoneliminar.setAttribute("id","botoneliminar"+valor);
+                        botoneliminar.setAttribute("class", "botoneliminar");
+                        var botoneditar = divbotones.appendChild(editar);
+                        botoneditar.setAttribute("id","botoneditar"+valor);
+                        botoneditar.setAttribute("class", "botoneditar");
+                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
+                        hiddenvalue.setAttribute("type", "hidden");
+                        hiddenvalue.setAttribute("id", "hidden"+valor);
+                        hiddenvaluediv.value = contador;
+                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
+                        hiddenvalue2.setAttribute("type", "hidden");
+                        hiddenvaluediv2.value = "4";
+                        document.getElementById("numtareas").innerHTML = tareas.length+1;
+                        contador++;
+        
+                }       
         }
                 
 
-        if(tareas.contenedor == "1"){
-                divtodo = document.getElementById("contenedor").appendChild(document.createElement("div"));
-                divtodo.setAttribute("id","divtareas"+valor);
-                divtodo.setAttribute("class", "divtareas");
-                var divicono = divtodo.appendChild(icono);
-                divicono.setAttribute("id","divicono"+valor);
-                divicono.setAttribute("class", "fas fa-angle-double-right");
-                var divtexto = divtodo.appendChild(div);
-                divtexto.setAttribute("id","divtexto"+valor);
-                divtexto.setAttribute("class", "divtexto");
-                var editarinput = divtodo.appendChild(input);
-                editarinput.setAttribute("id", "editarinput"+valor);
-                editarinput.setAttribute("class", "editarinput");
-                editarinput.style.display = "none";
-                var divbotones = divtodo.appendChild(document.createElement("div"));
-                divbotones.setAttribute("id","divbotones"+valor);
-                divbotones.setAttribute("class", "divbotones");
-                var botonmarcar = divbotones.appendChild(marcar);
-                botonmarcar.setAttribute("id","botonmarcar"+valor);
-                botonmarcar.setAttribute("class", "botonmarcar");
-                var botoneliminar = divbotones.appendChild(eliminar);
-                botoneliminar.setAttribute("id","botoneliminar"+valor);
-                botoneliminar.setAttribute("class", "botoneliminar");
-                var botoneditar = divbotones.appendChild(editar);
-                botoneditar.setAttribute("id","botoneditar"+valor);
-                botoneditar.setAttribute("class", "botoneditar");
-                var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                hiddenvalue.setAttribute("type", "hidden");
-                hiddenvalue.setAttribute("id", "hidden"+valor);
-                hiddenvaluediv.value = contador;
-                var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                hiddenvalue2.setAttribute("type", "hidden");
-                hiddenvaluediv2.value = "1";
-                document.getElementById("numtareas").innerHTML = tareas.length+1;
-                contador++;
-
-        } else if(tareas.contenedor == "2"){
-                divtodo = document.getElementById("contenedor2").appendChild(document.createElement("div"));
-                divtodo.setAttribute("id","divtareas"+valor);
-                divtodo.setAttribute("class", "divtareas");
-                var divicono = divtodo.appendChild(icono);
-                divicono.setAttribute("id","divicono"+valor);
-                divicono.setAttribute("class", "fas fa-angle-double-right");
-                var divtexto = divtodo.appendChild(div);
-                divtexto.setAttribute("id","divtexto"+valor);
-                divtexto.setAttribute("class", "divtexto");
-                var editarinput = divtodo.appendChild(input);
-                editarinput.setAttribute("id", "editarinput"+valor);
-                editarinput.setAttribute("class", "editarinput");
-                editarinput.style.display = "none";
-                var divbotones = divtodo.appendChild(document.createElement("div"));
-                divbotones.setAttribute("id","divbotones"+valor);
-                divbotones.setAttribute("class", "divbotones");
-                var botonmarcar = divbotones.appendChild(marcar);
-                botonmarcar.setAttribute("id","botonmarcar"+valor);
-                botonmarcar.setAttribute("class", "botonmarcar");
-                var botoneliminar = divbotones.appendChild(eliminar);
-                botoneliminar.setAttribute("id","botoneliminar"+valor);
-                botoneliminar.setAttribute("class", "botoneliminar");
-                var botoneditar = divbotones.appendChild(editar);
-                botoneditar.setAttribute("id","botoneditar"+valor);
-                botoneditar.setAttribute("class", "botoneditar");
-                var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                hiddenvalue.setAttribute("type", "hidden");
-                hiddenvalue.setAttribute("id", "hidden"+valor);
-                hiddenvaluediv.value = contador;
-                var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                hiddenvalue2.setAttribute("type", "hidden");
-                hiddenvaluediv2.value = "2";
-                document.getElementById("numtareas").innerHTML = tareas.length+1;
-                contador++;
-
-        } else if(tareas.contenedor == "3"){
-                divtodo = document.getElementById("contenedor3").appendChild(document.createElement("div"));
-                divtodo.setAttribute("id","divtareas"+valor);
-                divtodo.setAttribute("class", "divtareas");
-                var divicono = divtodo.appendChild(icono);
-                divicono.setAttribute("id","divicono"+valor);
-                divicono.setAttribute("class", "fas fa-angle-double-right");
-                var divtexto = divtodo.appendChild(div);
-                divtexto.setAttribute("id","divtexto"+valor);
-                divtexto.setAttribute("class", "divtexto");
-                var editarinput = divtodo.appendChild(input);
-                editarinput.setAttribute("id", "editarinput"+valor);
-                editarinput.setAttribute("class", "editarinput");
-                editarinput.style.display = "none";
-                var divbotones = divtodo.appendChild(document.createElement("div"));
-                divbotones.setAttribute("id","divbotones"+valor);
-                divbotones.setAttribute("class", "divbotones");
-                var botonmarcar = divbotones.appendChild(marcar);
-                botonmarcar.setAttribute("id","botonmarcar"+valor);
-                botonmarcar.setAttribute("class", "botonmarcar");
-                var botoneliminar = divbotones.appendChild(eliminar);
-                botoneliminar.setAttribute("id","botoneliminar"+valor);
-                botoneliminar.setAttribute("class", "botoneliminar");
-                var botoneditar = divbotones.appendChild(editar);
-                botoneditar.setAttribute("id","botoneditar"+valor);
-                botoneditar.setAttribute("class", "botoneditar");
-                var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                hiddenvalue.setAttribute("type", "hidden");
-                hiddenvalue.setAttribute("id", "hidden"+valor);
-                hiddenvaluediv.value = contador;
-                var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                hiddenvalue2.setAttribute("type", "hidden");
-                hiddenvaluediv2.value = "3";
-                document.getElementById("numtareas").innerHTML = tareas.length+1;
-                contador++;
-
-        } else if(tareas.contenedor == "4"){
-                divtodo = document.getElementById("contenedor4").appendChild(document.createElement("div"));
-                divtodo.setAttribute("id","divtareas"+valor);
-                divtodo.setAttribute("class", "divtareas");
-                var divicono = divtodo.appendChild(icono);
-                divicono.setAttribute("id","divicono"+valor);
-                divicono.setAttribute("class", "fas fa-angle-double-right");
-                var divtexto = divtodo.appendChild(div);
-                divtexto.setAttribute("id","divtexto"+valor);
-                divtexto.setAttribute("class", "divtexto");
-                var editarinput = divtodo.appendChild(input);
-                editarinput.setAttribute("id", "editarinput"+valor);
-                editarinput.setAttribute("class", "editarinput");
-                editarinput.style.display = "none";
-                var divbotones = divtodo.appendChild(document.createElement("div"));
-                divbotones.setAttribute("id","divbotones"+valor);
-                divbotones.setAttribute("class", "divbotones");
-                var botonmarcar = divbotones.appendChild(marcar);
-                botonmarcar.setAttribute("id","botonmarcar"+valor);
-                botonmarcar.setAttribute("class", "botonmarcar");
-                var botoneliminar = divbotones.appendChild(eliminar);
-                botoneliminar.setAttribute("id","botoneliminar"+valor);
-                botoneliminar.setAttribute("class", "botoneliminar");
-                var botoneditar = divbotones.appendChild(editar);
-                botoneditar.setAttribute("id","botoneditar"+valor);
-                botoneditar.setAttribute("class", "botoneditar");
-                var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                hiddenvalue.setAttribute("type", "hidden");
-                hiddenvalue.setAttribute("id", "hidden"+valor);
-                hiddenvaluediv.value = contador;
-                var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                hiddenvalue2.setAttribute("type", "hidden");
-                hiddenvaluediv2.value = "4";
-                document.getElementById("numtareas").innerHTML = tareas.length+1;
-                contador++;
-
-        }       
+        
 
         var content1 = document.getElementById("contenedor");
         Sortable.create(content1,{
@@ -607,4 +611,5 @@ function creaTareas(){
                 "estado": "No hecha",
                 "contenedor": hiddenvalue2.value,
         });    
+        defined = 0;
 }
