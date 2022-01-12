@@ -511,7 +511,6 @@ function creaTareas(){
                                 ],500);
                 }
                 
-
                 botoneliminar.animate([ 
                         {color: "white",
                         backgroundColor: "red"},
