@@ -378,9 +378,6 @@ function creaTareas(){
                 }       
         }
                 
-
-        
-
         var content1 = document.getElementById("contenedor");
         Sortable.create(content1,{
             group: {
@@ -388,10 +385,29 @@ function creaTareas(){
             },
             animation: 150,
             easing: "cubic-bezier(0.83, 0, 0.17, 1)",
-            handle: ".fas"
+            handle: ".fas",
+            onEnd: function (evt) {
+                if(evt.to.id == "contenedor"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "1";
+                        console.log(evt.to);
+                }else if(evt.to.id == "contenedor2"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "2";
+                        console.log(evt.to);
+                }else if(evt.to.id == "contenedor3"){                     
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "3";
+                        console.log(evt.to);
+                }else if(evt.to.id == "contenedor4"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "4";
+                        console.log(evt.to);
+                }
+	},
 
         });
-
+        
         var content2 = document.getElementById("contenedor2");
         Sortable.create(content2,{
             group: {
@@ -399,8 +415,26 @@ function creaTareas(){
             },
             animation: 150,
             easing: "cubic-bezier(0.83, 0, 0.17, 1)",
-            handle: ".fas"
-
+            handle: ".fas",
+            onEnd: function (evt) {
+		if(evt.to.id == "contenedor"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "1";
+                        console.log(tareas);
+                }else if(evt.to.id == "contenedor2"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "2";
+                        console.log(tareas);
+                }else if(evt.to.id == "contenedor3"){                     
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "3";
+                        console.log(tareas);
+                }else if(evt.to.id == "contenedor4"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "4";
+                        console.log(tareas);
+                }
+	},
         });
 
         var content3 = document.getElementById("contenedor3");
@@ -410,7 +444,26 @@ function creaTareas(){
             },
             animation: 150,
             easing: "cubic-bezier(0.83, 0, 0.17, 1)",
-            handle: ".fas"
+            handle: ".fas",
+            onEnd: function (evt) {
+                if(evt.to.id == "contenedor"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "1";
+                        console.log(tareas);
+                }else if(evt.to.id == "contenedor2"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "2";
+                        console.log(tareas);
+                }else if(evt.to.id == "contenedor3"){                     
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "3";
+                        console.log(tareas);
+                }else if(evt.to.id == "contenedor4"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "4";
+                        console.log(tareas);
+                }
+	},
 
         });
 
@@ -421,7 +474,26 @@ function creaTareas(){
             },
             animation: 150,
             easing: "cubic-bezier(0.83, 0, 0.17, 1)",
-            handle: ".fas"
+            handle: ".fas",
+            onEnd: function (evt) {
+                if(evt.to.id == "contenedor"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "1";
+                        console.log(tareas);
+                }else if(evt.to.id == "contenedor2"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "2";
+                        console.log(tareas);
+                }else if(evt.to.id == "contenedor3"){                     
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "3";
+                        console.log(tareas);
+                }else if(evt.to.id == "contenedor4"){
+                        contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
+                        contenedortarea.contenedor = "4";
+                        console.log(tareas);
+                }
+	},
 
         });
 
