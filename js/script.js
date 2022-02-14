@@ -8,6 +8,14 @@ var divtodo;
 var contenedor;
 var contenedortarea;
 var defined = 0;
+var divicono;
+var divtexto;
+var editarinput;
+var divbotones;
+var botonmarcar;
+var botoneliminar;
+var botoneditar;
+var hiddenvaluediv;
 
 function isEmpty(str) {
         str = str.trim();
@@ -73,308 +81,106 @@ function creaTareas(){
         var editar = document.createElement("button");
         var input = document.createElement("input");
         var hiddenvalue = document.createElement("input");
-        var hiddenvalue2 = document.createElement("input");
         
         div.appendChild(document.createTextNode(valor));
         marcar.appendChild(document.createTextNode("Marcar"));
         eliminar.appendChild(document.createTextNode("Eliminar"));
         editar.appendChild(document.createTextNode("Editar"));
 
-        
-
         var select = document.getElementById("valores");
 
 
+        function divTareas(){
+                divtodo.setAttribute("id","divtareas"+valor);
+                divicono = divtodo.appendChild(icono);
+                divicono.setAttribute("id","divicono"+valor);
+                divicono.setAttribute("class", "fas fa-angle-double-right");
+                divtexto = divtodo.appendChild(div);
+                divtexto.setAttribute("id","divtexto"+valor);
+                divtexto.setAttribute("class", "divtexto");
+                editarinput = divtodo.appendChild(input);
+                editarinput.setAttribute("id", "editarinput"+valor);
+                editarinput.setAttribute("class", "editarinput");
+                editarinput.style.display = "none";
+                divbotones = divtodo.appendChild(document.createElement("div"));
+                divbotones.setAttribute("id","divbotones"+valor);
+                divbotones.setAttribute("class", "divbotones");
+                botonmarcar = divbotones.appendChild(marcar);
+                botonmarcar.setAttribute("id","botonmarcar"+valor);
+                botonmarcar.setAttribute("class", "botonmarcar");
+                botoneliminar = divbotones.appendChild(eliminar);
+                botoneliminar.setAttribute("id","botoneliminar"+valor);
+                botoneliminar.setAttribute("class", "botoneliminar");
+                botoneditar = divbotones.appendChild(editar);
+                botoneditar.setAttribute("id","botoneditar"+valor);
+                botoneditar.setAttribute("class", "botoneditar");
+                hiddenvaluediv = divtodo.appendChild(hiddenvalue);
+                hiddenvalue.setAttribute("type", "hidden");
+                hiddenvalue.setAttribute("id", "hidden"+valor);
+                hiddenvaluediv.value = contador;               
+        }        
+        
         if(defined === 0){
                 if(select.value == "enanalisis"){
                         divtodo = document.getElementById("contenedor").appendChild(document.createElement("div"));
-                        divtodo.setAttribute("id","divtareas"+valor);
                         divtodo.setAttribute("class", "divtareas");
-                        var divicono = divtodo.appendChild(icono);
-                        divicono.setAttribute("id","divicono"+valor);
-                        divicono.setAttribute("class", "fas fa-angle-double-right");
-                        var divtexto = divtodo.appendChild(div);
-                        divtexto.setAttribute("id","divtexto"+valor);
-                        divtexto.setAttribute("class", "divtexto");
-                        var editarinput = divtodo.appendChild(input);
-                        editarinput.setAttribute("id", "editarinput"+valor);
-                        editarinput.setAttribute("class", "editarinput");
-                        editarinput.style.display = "none";
-                        var divbotones = divtodo.appendChild(document.createElement("div"));
-                        divbotones.setAttribute("id","divbotones"+valor);
-                        divbotones.setAttribute("class", "divbotones");
-                        var botonmarcar = divbotones.appendChild(marcar);
-                        botonmarcar.setAttribute("id","botonmarcar"+valor);
-                        botonmarcar.setAttribute("class", "botonmarcar");
-                        var botoneliminar = divbotones.appendChild(eliminar);
-                        botoneliminar.setAttribute("id","botoneliminar"+valor);
-                        botoneliminar.setAttribute("class", "botoneliminar");
-                        var botoneditar = divbotones.appendChild(editar);
-                        botoneditar.setAttribute("id","botoneditar"+valor);
-                        botoneditar.setAttribute("class", "botoneditar");
-                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                        hiddenvalue.setAttribute("type", "hidden");
-                        hiddenvalue.setAttribute("id", "hidden"+valor);
-                        hiddenvaluediv.value = contador;
-                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                        hiddenvalue2.setAttribute("type", "hidden");
-                        hiddenvaluediv2.value = "1";
+                        divTareas();
                         document.getElementById("numtareas").innerHTML = tareas.length+1;
                         contador++;
 
                 } else if(select.value == "pendiente"){
                         divtodo = document.getElementById("contenedor2").appendChild(document.createElement("div"));
-                        divtodo.setAttribute("id","divtareas"+valor);
                         divtodo.setAttribute("class", "divtareas");
-                        var divicono = divtodo.appendChild(icono);
-                        divicono.setAttribute("id","divicono"+valor);
-                        divicono.setAttribute("class", "fas fa-angle-double-right");
-                        var divtexto = divtodo.appendChild(div);
-                        divtexto.setAttribute("id","divtexto"+valor);
-                        divtexto.setAttribute("class", "divtexto");
-                        var editarinput = divtodo.appendChild(input);
-                        editarinput.setAttribute("id", "editarinput"+valor);
-                        editarinput.setAttribute("class", "editarinput");
-                        editarinput.style.display = "none";
-                        var divbotones = divtodo.appendChild(document.createElement("div"));
-                        divbotones.setAttribute("id","divbotones"+valor);
-                        divbotones.setAttribute("class", "divbotones");
-                        var botonmarcar = divbotones.appendChild(marcar);
-                        botonmarcar.setAttribute("id","botonmarcar"+valor);
-                        botonmarcar.setAttribute("class", "botonmarcar");
-                        var botoneliminar = divbotones.appendChild(eliminar);
-                        botoneliminar.setAttribute("id","botoneliminar"+valor);
-                        botoneliminar.setAttribute("class", "botoneliminar");
-                        var botoneditar = divbotones.appendChild(editar);
-                        botoneditar.setAttribute("id","botoneditar"+valor);
-                        botoneditar.setAttribute("class", "botoneditar");
-                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                        hiddenvalue.setAttribute("type", "hidden");
-                        hiddenvalue.setAttribute("id", "hidden"+valor);
-                        hiddenvaluediv.value = contador;
-                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                        hiddenvalue2.setAttribute("type", "hidden");
-                        hiddenvaluediv2.value = "2";
+                        divTareas();
                         document.getElementById("numtareas").innerHTML = tareas.length+1;
                         contador++;
 
                 }else if(select.value == "enprogreso"){
                         divtodo = document.getElementById("contenedor3").appendChild(document.createElement("div"));
-                        divtodo.setAttribute("id","divtareas"+valor);
                         divtodo.setAttribute("class", "divtareas");
-                        var divicono = divtodo.appendChild(icono);
-                        divicono.setAttribute("id","divicono"+valor);
-                        divicono.setAttribute("class", "fas fa-angle-double-right");
-                        var divtexto = divtodo.appendChild(div);
-                        divtexto.setAttribute("id","divtexto"+valor);
-                        divtexto.setAttribute("class", "divtexto");
-                        var editarinput = divtodo.appendChild(input);
-                        editarinput.setAttribute("id", "editarinput"+valor);
-                        editarinput.setAttribute("class", "editarinput");
-                        editarinput.style.display = "none";
-                        var divbotones = divtodo.appendChild(document.createElement("div"));
-                        divbotones.setAttribute("id","divbotones"+valor);
-                        divbotones.setAttribute("class", "divbotones");
-                        var botonmarcar = divbotones.appendChild(marcar);
-                        botonmarcar.setAttribute("id","botonmarcar"+valor);
-                        botonmarcar.setAttribute("class", "botonmarcar");
-                        var botoneliminar = divbotones.appendChild(eliminar);
-                        botoneliminar.setAttribute("id","botoneliminar"+valor);
-                        botoneliminar.setAttribute("class", "botoneliminar");
-                        var botoneditar = divbotones.appendChild(editar);
-                        botoneditar.setAttribute("id","botoneditar"+valor);
-                        botoneditar.setAttribute("class", "botoneditar");
-                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                        hiddenvalue.setAttribute("type", "hidden");
-                        hiddenvalue.setAttribute("id", "hidden"+valor);
-                        hiddenvaluediv.value = contador;
-                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                        hiddenvalue2.setAttribute("type", "hidden");
-                        hiddenvaluediv2.value = "3";
+                        divTareas();
                         document.getElementById("numtareas").innerHTML = tareas.length+1;     
                         contador++;
 
                 }else if(select.value == "hecho"){
                         divtodo = document.getElementById("contenedor4").appendChild(document.createElement("div"));
-                        divtodo.setAttribute("id","divtareas"+valor);
                         divtodo.setAttribute("class", "divtareas");
-                        var divicono = divtodo.appendChild(icono);
-                        divicono.setAttribute("id","divicono"+valor);
-                        divicono.setAttribute("class", "fas fa-angle-double-right");
-                        var divtexto = divtodo.appendChild(div);
-                        divtexto.setAttribute("id","divtexto"+valor);
-                        divtexto.setAttribute("class", "divtexto");
-                        var editarinput = divtodo.appendChild(input);
-                        editarinput.setAttribute("id", "editarinput"+valor);
-                        editarinput.setAttribute("class", "editarinput");
-                        editarinput.style.display = "none";
-                        var divbotones = divtodo.appendChild(document.createElement("div"));
-                        divbotones.setAttribute("id","divbotones"+valor);
-                        divbotones.setAttribute("class", "divbotones");
-                        var botonmarcar = divbotones.appendChild(marcar);
-                        botonmarcar.setAttribute("id","botonmarcar"+valor);
-                        botonmarcar.setAttribute("class", "botonmarcar");
-                        var botoneliminar = divbotones.appendChild(eliminar);
-                        botoneliminar.setAttribute("id","botoneliminar"+valor);
-                        botoneliminar.setAttribute("class", "botoneliminar");
-                        var botoneditar = divbotones.appendChild(editar);
-                        botoneditar.setAttribute("id","botoneditar"+valor);
-                        botoneditar.setAttribute("class", "botoneditar");
-                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                        hiddenvalue.setAttribute("type", "hidden");
-                        hiddenvalue.setAttribute("id", "hidden"+valor);
-                        hiddenvaluediv.value = contador;
-                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                        hiddenvalue2.setAttribute("type", "hidden");
-                        hiddenvaluediv2.value = "4";
+                        divTareas();
                         document.getElementById("numtareas").innerHTML = tareas.length+1;
                         contador++;
                 }
         }else{
-                if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "1"){
+                if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "contenedor"){
                         divtodo = document.getElementById("contenedor").appendChild(document.createElement("div"));
                         divtodo.setAttribute("id","divtareas"+valor);
                         divtodo.setAttribute("class", "divtareas");
-                        var divicono = divtodo.appendChild(icono);
-                        divicono.setAttribute("id","divicono"+valor);
-                        divicono.setAttribute("class", "fas fa-angle-double-right");
-                        var divtexto = divtodo.appendChild(div);
-                        divtexto.setAttribute("id","divtexto"+valor);
-                        divtexto.setAttribute("class", "divtexto");
-                        var editarinput = divtodo.appendChild(input);
-                        editarinput.setAttribute("id", "editarinput"+valor);
-                        editarinput.setAttribute("class", "editarinput");
-                        editarinput.style.display = "none";
-                        var divbotones = divtodo.appendChild(document.createElement("div"));
-                        divbotones.setAttribute("id","divbotones"+valor);
-                        divbotones.setAttribute("class", "divbotones");
-                        var botonmarcar = divbotones.appendChild(marcar);
-                        botonmarcar.setAttribute("id","botonmarcar"+valor);
-                        botonmarcar.setAttribute("class", "botonmarcar");
-                        var botoneliminar = divbotones.appendChild(eliminar);
-                        botoneliminar.setAttribute("id","botoneliminar"+valor);
-                        botoneliminar.setAttribute("class", "botoneliminar");
-                        var botoneditar = divbotones.appendChild(editar);
-                        botoneditar.setAttribute("id","botoneditar"+valor);
-                        botoneditar.setAttribute("class", "botoneditar");
-                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                        hiddenvalue.setAttribute("type", "hidden");
-                        hiddenvalue.setAttribute("id", "hidden"+valor);
-                        hiddenvaluediv.value = contador;
-                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                        hiddenvalue2.setAttribute("type", "hidden");
-                        hiddenvaluediv2.value = "1";
+                        divTareas();
                         document.getElementById("numtareas").innerHTML = tareas.length+1;
                         contador++;
         
-                } else if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "2"){
+                } else if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "contenedor2"){
                         divtodo = document.getElementById("contenedor2").appendChild(document.createElement("div"));
                         divtodo.setAttribute("id","divtareas"+valor);
                         divtodo.setAttribute("class", "divtareas");
-                        var divicono = divtodo.appendChild(icono);
-                        divicono.setAttribute("id","divicono"+valor);
-                        divicono.setAttribute("class", "fas fa-angle-double-right");
-                        var divtexto = divtodo.appendChild(div);
-                        divtexto.setAttribute("id","divtexto"+valor);
-                        divtexto.setAttribute("class", "divtexto");
-                        var editarinput = divtodo.appendChild(input);
-                        editarinput.setAttribute("id", "editarinput"+valor);
-                        editarinput.setAttribute("class", "editarinput");
-                        editarinput.style.display = "none";
-                        var divbotones = divtodo.appendChild(document.createElement("div"));
-                        divbotones.setAttribute("id","divbotones"+valor);
-                        divbotones.setAttribute("class", "divbotones");
-                        var botonmarcar = divbotones.appendChild(marcar);
-                        botonmarcar.setAttribute("id","botonmarcar"+valor);
-                        botonmarcar.setAttribute("class", "botonmarcar");
-                        var botoneliminar = divbotones.appendChild(eliminar);
-                        botoneliminar.setAttribute("id","botoneliminar"+valor);
-                        botoneliminar.setAttribute("class", "botoneliminar");
-                        var botoneditar = divbotones.appendChild(editar);
-                        botoneditar.setAttribute("id","botoneditar"+valor);
-                        botoneditar.setAttribute("class", "botoneditar");
-                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                        hiddenvalue.setAttribute("type", "hidden");
-                        hiddenvalue.setAttribute("id", "hidden"+valor);
-                        hiddenvaluediv.value = contador;
-                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                        hiddenvalue2.setAttribute("type", "hidden");
-                        hiddenvaluediv2.value = "2";
+                        divTareas();
                         document.getElementById("numtareas").innerHTML = tareas.length+1;
                         contador++;
         
-                } else if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "3"){
+                } else if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "contenedor3"){
                         divtodo = document.getElementById("contenedor3").appendChild(document.createElement("div"));
                         divtodo.setAttribute("id","divtareas"+valor);
                         divtodo.setAttribute("class", "divtareas");
-                        var divicono = divtodo.appendChild(icono);
-                        divicono.setAttribute("id","divicono"+valor);
-                        divicono.setAttribute("class", "fas fa-angle-double-right");
-                        var divtexto = divtodo.appendChild(div);
-                        divtexto.setAttribute("id","divtexto"+valor);
-                        divtexto.setAttribute("class", "divtexto");
-                        var editarinput = divtodo.appendChild(input);
-                        editarinput.setAttribute("id", "editarinput"+valor);
-                        editarinput.setAttribute("class", "editarinput");
-                        editarinput.style.display = "none";
-                        var divbotones = divtodo.appendChild(document.createElement("div"));
-                        divbotones.setAttribute("id","divbotones"+valor);
-                        divbotones.setAttribute("class", "divbotones");
-                        var botonmarcar = divbotones.appendChild(marcar);
-                        botonmarcar.setAttribute("id","botonmarcar"+valor);
-                        botonmarcar.setAttribute("class", "botonmarcar");
-                        var botoneliminar = divbotones.appendChild(eliminar);
-                        botoneliminar.setAttribute("id","botoneliminar"+valor);
-                        botoneliminar.setAttribute("class", "botoneliminar");
-                        var botoneditar = divbotones.appendChild(editar);
-                        botoneditar.setAttribute("id","botoneditar"+valor);
-                        botoneditar.setAttribute("class", "botoneditar");
-                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                        hiddenvalue.setAttribute("type", "hidden");
-                        hiddenvalue.setAttribute("id", "hidden"+valor);
-                        hiddenvaluediv.value = contador;
-                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                        hiddenvalue2.setAttribute("type", "hidden");
-                        hiddenvaluediv2.value = "3";
+                        divTareas();
                         document.getElementById("numtareas").innerHTML = tareas.length+1;
                         contador++;
         
-                } else if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "4"){
+                } else if(JSON.parse(localStorage.getItem('tarea'))[i].contenedor == "contenedor4"){
                         divtodo = document.getElementById("contenedor4").appendChild(document.createElement("div"));
                         divtodo.setAttribute("id","divtareas"+valor);
                         divtodo.setAttribute("class", "divtareas");
-                        var divicono = divtodo.appendChild(icono);
-                        divicono.setAttribute("id","divicono"+valor);
-                        divicono.setAttribute("class", "fas fa-angle-double-right");
-                        var divtexto = divtodo.appendChild(div);
-                        divtexto.setAttribute("id","divtexto"+valor);
-                        divtexto.setAttribute("class", "divtexto");
-                        var editarinput = divtodo.appendChild(input);
-                        editarinput.setAttribute("id", "editarinput"+valor);
-                        editarinput.setAttribute("class", "editarinput");
-                        editarinput.style.display = "none";
-                        var divbotones = divtodo.appendChild(document.createElement("div"));
-                        divbotones.setAttribute("id","divbotones"+valor);
-                        divbotones.setAttribute("class", "divbotones");
-                        var botonmarcar = divbotones.appendChild(marcar);
-                        botonmarcar.setAttribute("id","botonmarcar"+valor);
-                        botonmarcar.setAttribute("class", "botonmarcar");
-                        var botoneliminar = divbotones.appendChild(eliminar);
-                        botoneliminar.setAttribute("id","botoneliminar"+valor);
-                        botoneliminar.setAttribute("class", "botoneliminar");
-                        var botoneditar = divbotones.appendChild(editar);
-                        botoneditar.setAttribute("id","botoneditar"+valor);
-                        botoneditar.setAttribute("class", "botoneditar");
-                        var hiddenvaluediv = divtodo.appendChild(hiddenvalue);
-                        hiddenvalue.setAttribute("type", "hidden");
-                        hiddenvalue.setAttribute("id", "hidden"+valor);
-                        hiddenvaluediv.value = contador;
-                        var hiddenvaluediv2 = divtodo.appendChild(hiddenvalue2);
-                        hiddenvalue2.setAttribute("type", "hidden");
-                        hiddenvaluediv2.value = "4";
+                        divTareas();
                         document.getElementById("numtareas").innerHTML = tareas.length+1;
                         contador++;
-        
                 }       
         }
                 
@@ -389,20 +195,20 @@ function creaTareas(){
             onEnd: function (evt) {
                 if(evt.to.id == "contenedor"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "1";
-                        console.log(evt.to);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor2"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "2";
-                        console.log(evt.to);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor3"){                     
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "3";
-                        console.log(evt.to);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor4"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "4";
-                        console.log(evt.to);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }
 	},
 
@@ -419,20 +225,20 @@ function creaTareas(){
             onEnd: function (evt) {
 		if(evt.to.id == "contenedor"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "1";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor2"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "2";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor3"){                     
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "3";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor4"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "4";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }
 	},
         });
@@ -448,20 +254,20 @@ function creaTareas(){
             onEnd: function (evt) {
                 if(evt.to.id == "contenedor"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "1";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor2"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "2";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor3"){                     
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "3";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor4"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "4";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }
 	},
 
@@ -478,33 +284,25 @@ function creaTareas(){
             onEnd: function (evt) {
                 if(evt.to.id == "contenedor"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "1";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor2"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "2";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor3"){                     
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "3";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }else if(evt.to.id == "contenedor4"){
                         contenedortarea = tareas.find(element => element.id === hiddenvalue.value);
-                        contenedortarea.contenedor = "4";
-                        console.log(tareas);
+                        contenedortarea.contenedor = evt.to.id;
+                        console.log(evt.to.id);
                 }
 	},
 
         });
 
-        
-        botonmarcar.animate([ 
-                {color: "transparent",
-                backgroundColor: "transparent"},
-                {color: "white",
-                backgroundColor: "green"}
-                ],1000);
-        
                 
         botonmarcar.onclick=function marcarTarea(){
                 if(botonmarcar.innerHTML === "Marcar"){
@@ -680,7 +478,7 @@ function creaTareas(){
                 "id": hiddenvalue.value,
                 "nombre": divtexto.innerHTML,
                 "estado": "No hecha",
-                "contenedor": hiddenvalue2.value,
+                "contenedor": divtodo.parentNode.id,
         });    
         defined = 0;
 }
