@@ -195,6 +195,7 @@ function creaTareas(){
             onEnd: function (evt) {
                 contenedortarea = tareas.find(element => element.nombre === divtexto.innerHTML);
                 if(evt.to.id == "contenedor"){
+
                         contenedortarea.contenedor = evt.to.id;
                 }else if(evt.to.id == "contenedor2"){
                         contenedortarea.contenedor = evt.to.id;
@@ -202,6 +203,7 @@ function creaTareas(){
                         contenedortarea.contenedor = evt.to.id;
                 }else if(evt.to.id == "contenedor4"){
                         contenedortarea.contenedor = evt.to.id;
+
                 }
 	},
 
